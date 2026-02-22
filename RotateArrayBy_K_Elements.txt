@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void reversearr(vector<int>&a, int s, int e)
+{
+    while(s<e)
+    {
+        swap(a[s], a[e]);
+        s++;
+        e--;
+    }
+}
+
+void leftrotate(vector<int>&a, int k)
+{
+    int n=a.size();
+    int d=k%n;
+    
+    if(d==0)
+       return;
+       
+    reversearr(a,0,d-1);
+    reversearr(a,d,n-1);
+    reversearr(a,0,n-1);
+}
+
+void rightrotate(vector<int>&a, int k)
+{
+    int n=a.size();
+    int d=k%n;
+    leftrotate(a,n-d);
+}
+
+int main()
+{
+    int k;
+    cout<<"Enter the no.of positions you want to move: ";
+    cin>>k;
+    
+    vector<int>a;
+    vector<int>b;
+    int x;
+    
+    while(cin>>x)
+      a.push_back(x);
+     
+    b=a;  
+      
+    leftrotate(a,k);
+    for(int x: a)
+       cout<<x<<" ";
+    cout<<endl;
+    
+    a=b;
+    
+    rightrotate(a,k);
+    for(int x: a)
+       cout<<x<<" ";
+    cout<<endl;
+    
+    return 0;
+}
