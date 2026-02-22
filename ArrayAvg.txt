@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+//Average of an Array
+
+int main()
+{
+    vector<int>a;
+    int x;
+    double sum=0, avg;
+    cout<<"Enter elements for array: ";
+    while(cin>>x)
+      a.push_back(x);
+      
+    int n=a.size();
+    
+    for(int x:a)
+      sum+=x;
+    avg=sum/n;
+    
+    cout<<avg;
+    
+    return 0;
+}
