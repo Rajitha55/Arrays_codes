@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+double findmedian(vector<int>&a)
+{
+    sort(a.begin(),a.end());
+    int n=a.size();
+    
+    if(n%2!=0)
+       return a[n/2];
+    
+    else
+       return double((a[n/2]+a[(n/2)-1])/2.0); //Here dividing with 2.0 instead of 2. Bcz then only it will give median value in decimal value.
+}
+
+int main()
+{
+    int x;
+    vector<int>a;
+    cout<<"Enter elements for an array: ";
+    while(cin>>x)
+      a.push_back(x);
+      
+    double median=findmedian(a);
+    cout<<"Median= "<<median;
+    return 0;
+}
