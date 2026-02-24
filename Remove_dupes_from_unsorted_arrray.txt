@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+//To Remove the duplicate elements from unsorted array
+
+vector<int> removedupes(vector<int>a)
+{
+    vector<int>res;
+    unordered_map<int,bool>m;
+    
+    for(int x:a)
+    {
+        if(!m[x])
+        {
+          res.push_back(x);
+          m[x]=true;
+        }
+    }
+    return res;
+}
+
+int main()
+{
+    vector<int>a;
+    int x;
+    cout<<"Enter the elements for an array: ";
+    while(cin>>x)
+      a.push_back(x);
+      
+    vector<int>res = removedupes(a);
+    
+    for(int i: res)
+      cout<<i<<" ";
+    return 0;
+}
