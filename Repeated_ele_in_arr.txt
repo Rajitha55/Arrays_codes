@@ -1,0 +1,27 @@
+//Program to find repeated elements in an Array
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void repeatele(vector<int>a)
+{
+    unordered_map<int,int>count;
+    for(int i:a)
+      count[i]++;
+      
+    for(auto &[key,value]:count)
+      if (value>1)
+         cout<<key<<" ";
+}
+
+int main()
+{
+    int x;
+    vector<int>a;
+    cout<<"Enter elements of an array: "<<endl;
+    while(cin>>x)
+      a.push_back(x);
+    
+    repeatele(a);
+    return 0;
+}
