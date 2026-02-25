@@ -1,0 +1,40 @@
+//Program to add elements at start, end and at a specific position of an Array
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void insertele(vector<int>&a, int pos, int ele)
+{
+    int n=a.size();
+    if(pos<1 || pos>n+1)
+       cout<<"Invalid Position"<<endl;
+    else if(pos==1)
+       a.insert(a.begin(), ele);
+    else if(pos==n)
+       a.push_back(ele);
+    else
+       a.insert(a.begin()+pos-1, ele);
+}
+
+int main()
+{
+    int x;
+    vector<int>a;
+    cout<<"Enter elements for array: "<<endl;
+    while(cin>>x and x!=-1)
+       a.push_back(x);
+       
+    int pos;
+    int ele;
+    cout<<"Enter position and element to insert into an Array: "<<endl;
+    cin>>pos;
+    cin>>ele;
+    
+    insertele(a,pos,ele);
+    
+    cout<<"Elemets of an  array after inserting new elemenet:"<<endl;
+    for(int i:a)
+       cout<<i<<" ";
+    
+    return 0;
+}
