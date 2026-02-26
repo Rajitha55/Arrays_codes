@@ -1,0 +1,34 @@
+//Program to print max product subarray in an Array
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int maxpro(vector<int>&arr)
+{
+    int n=arr.size();
+    int pre=1, suf=1, res=INT_MIN;
+    for(int i=0;i<n;i++)
+    {
+        if(pre==0) 
+           pre=1;
+        if(suf==0)
+           suf=1;
+           
+        pre*=arr[i];
+        suf*=arr[n-i-1];
+        res=max(res,max(pre,suf));
+    }
+    return res;
+}
+
+int main()
+{
+    vector<int>arr;
+    int n;
+    cout<<"Enter elements of an Array:"<<endl;
+    while(cin>>n)
+       arr.push_back(n);
+       
+    cout<<maxpro(arr);
+    return 0;
+}
