@@ -1,0 +1,43 @@
+//replacing each element of an array with its Rank
+
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> findrank(vector<int>arr)
+{
+    vector<int>sarr=arr;
+    sort(sarr.begin(),sarr.end());
+    
+    unordered_map<int,int>mp;
+    int rank=1;
+    for(int x:sarr)
+    {
+        if(mp.find(x)==mp.end())
+        {
+            mp[x]=rank;
+            rank++;
+        }
+    }
+    
+    vector<int>res;
+    for(int x:arr)
+        res.push_back(mp[x]);
+        
+    return res;
+}
+
+int main()
+{
+    vector<int>arr;
+    int x;
+    cout<<"enter elements of an Array: ";
+    while(cin>>x)
+       arr.push_back(x);
+       
+    vector<int>res=findrank(arr);
+    
+    for(int i:res)
+      cout<<i<<" ";
+    
+    return 0;
+}
