@@ -1,0 +1,36 @@
+//Program to print all symmetric pairs
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout<<"Enter no.of paird you want to enter: ";
+    cin>>n;
+    
+    vector<pair<int,int>>arr;
+    
+    for(int i=0;i<n;i++)
+    {
+        int a,b;
+        cin>>a>>b;
+        arr.push_back({a,b});
+    }
+    
+    unordered_map<int,int>mp;
+    
+    for(auto &p:arr)
+    {
+        int first,second;
+        first=p.first;
+        second=p.second;
+        
+        if(mp.find(second)!=mp.end() && mp[second]==first)
+           cout<<"("<<first<<","<<second<<")"<<endl;
+        else
+           mp[first]=second;
+    }
+    
+    return 0;
+}
