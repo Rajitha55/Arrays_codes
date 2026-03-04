@@ -1,0 +1,39 @@
+//Program to print equi;ibrium index of an array
+//Equilibrium index is an index where the sum of all elements in left side= sum of all elements in right side. 
+//If there is no such index, then will be returning -1
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int equind(vector<int>arr)
+{
+    int ind;
+    int totsum=0;
+    for(int x:arr)
+       totsum+=x;
+       
+    int leftsum=0, rightsum=totsum;
+    
+    for(int i=0;i<arr.size();i++)
+    {
+        rightsum-=arr[i];
+        if(leftsum==rightsum)
+           return i;
+        leftsum+=arr[i];
+    }
+    return -1;
+}
+
+int main()
+{
+    vector<int>arr;
+    int n;
+    cout<<"Enter elements for an array: "<<endl;
+    while(cin>>n)
+       arr.push_back(n);
+       
+    int res=equind(arr);
+    
+    cout<<"Equilibrium Index : "<<res;
+    return 0;
+}
